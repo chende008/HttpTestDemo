@@ -42,7 +42,7 @@ export default class App extends React.Component {
 
     login = () => {
         let params = {userName: 'zhangsan', userPass: '123456a'};
-        RFHttp().url('api/login').param(params).get((success, json, message, status, resonse) => {
+        RFHttp().url('api/login').param(params).formEncoded().get((success, json, message, status, resonse) => {
             if (success) {
                 if (resonse.headers && resonse.headers.map) {
                     RNStorage.accessToken = resonse.headers.map['x-oss-meta-accesstoken'];
@@ -58,7 +58,7 @@ export default class App extends React.Component {
     };
 
     queryUserInfo = () => {
-        RFHttp().url('api/userInfo').get((success, json, message) => {
+        RFHttp().url('api/userInfo').formJson().get((success, json, message) => {
             if (success) {
                 RNStorage.userInfo = json;
                 this.setState({data: JSON.stringify(json)});
