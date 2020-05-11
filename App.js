@@ -12,8 +12,7 @@ export default class App extends React.Component {
         this.state = {
             data: '',
             initStorage: false,
-        }
-        ;
+        };
         this.initConfig();
     }
 
