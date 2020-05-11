@@ -1,9 +1,9 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, TouchableOpacity, Text, StatusBar, Platform} from 'react-native';
-import {RFHttp, RFHttpConfig, RFStorage} from 'react-native-fast-app';
+import {XHttp, XHttpConfig, XStorage} from 'react-native-easy-app';
 import {RNStorage} from './src/AppStorage';
 
-const baseUrl = 'https://react-native-fast-app.oss-cn-beijing.aliyuncs.com/';
+const baseUrl = 'https://react-native-easy-app.oss-cn-beijing.aliyuncs.com/';
 
 export default class App extends React.Component {
 
@@ -11,7 +11,7 @@ export default class App extends React.Component {
         super(props);
         this.state = {
             data: '',
-            initStorage: true,
+            initStorage: false,
         }
         ;
         this.initConfig();
@@ -42,7 +42,7 @@ export default class App extends React.Component {
 
     login = () => {
         let params = {userName: 'zhangsan', userPass: '123456a'};
-        RFHttp().url('api/login').param(params).formEncoded().get((success, json, message, status, resonse) => {
+        XHttp().url('api/login').param(params).formEncoded().get((success, json, message, status, resonse) => {
             if (success) {
                 if (resonse.headers && resonse.headers.map) {
                     RNStorage.accessToken = resonse.headers.map['x-oss-meta-accesstoken'];
@@ -58,7 +58,7 @@ export default class App extends React.Component {
     };
 
     queryUserInfo = () => {
-        RFHttp().url('api/userInfo').formJson().get((success, json, message) => {
+        XHttp().url('api/userInfo').formJson().get((success, json, message) => {
             if (success) {
                 RNStorage.userInfo = json;
                 this.setState({data: JSON.stringify(json)});
@@ -78,7 +78,7 @@ export default class App extends React.Component {
 
 
     initConfig = () => {
-        RFStorage.initStorage(RNStorage, () => {
+        XStorage.initStorage(RNStorage, () => {
             this.setState({initStorage: true});
             this.initHttpConfig();
         }, data => {
@@ -93,7 +93,7 @@ export default class App extends React.Component {
         if (!RNStorage.baseUrl) {
             RNStorage.baseUrl = baseUrl;
         }
-        RFHttpConfig().initHttpLogOn(true)
+        XHttpConfig().initHttpLogOn(true)
             .initBaseUrl(RNStorage.baseUrl)
             .initHeaderSetFunc((headers) => {
                 headers['model'] = 'xiao mi';
