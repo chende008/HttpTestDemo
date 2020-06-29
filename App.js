@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, TouchableOpacity, Text, StatusBar, Platform} from 'react-native';
+import {SafeAreaView, StyleSheet, TouchableOpacity, Text, StatusBar, Platform, AsyncStorage} from 'react-native';
 import {XHttp, XHttpConfig, XStorage} from 'react-native-easy-app';
 import {RNStorage} from './src/AppStorage';
 
@@ -77,7 +77,7 @@ export default class App extends React.Component {
 
 
     initConfig = () => {
-        XStorage.initStorage(RNStorage, () => {
+        XStorage.initStorage(RNStorage, AsyncStorage, () => {
             this.setState({initStorage: true});
             this.initHttpConfig();
         }, data => {
