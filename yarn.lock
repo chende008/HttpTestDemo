@@ -5380,10 +5380,10 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-native-easy-app@^1.7.16:
-  version "1.7.16"
-  resolved "https://registry.npmjs.org/react-native-easy-app/-/react-native-easy-app-1.7.16.tgz#8b4760d66c41346ab8744c35ff08be90b705190e"
-  integrity sha512-8PLnxyOvF3CGTOSGb9OWqZPi7JTQA+RJ8mYLJYGUIryTM60GUIPxUsMd4pwJ8Da9+VilOVp7CInlisDNL2i0yQ==
+react-native-easy-app@^1.7.19:
+  version "1.7.19"
+  resolved "https://registry.npmjs.org/react-native-easy-app/-/react-native-easy-app-1.7.19.tgz#569ce2b4d251abc973211cc2874fed711312d0b1"
+  integrity sha512-8sPqPp+uB0aAdkOefkyscMrBTmVebvPHU8G91yHnmAf//xOHfjl6yqdlILW8zjconayaZcim/cni+zi87x4HqA==
 
 react-native@0.62.2:
   version "0.62.2"
